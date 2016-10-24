@@ -1,0 +1,19 @@
+graylog2:
+  container_name: graylog2
+  restart: always
+  image: graylog2/allinone
+  ports:
+    - 80:9000
+    - 12201:12201/udp
+    - 514:514/udp
+    - 5555:5555/udp
+    - 12900:12202
+
+  volumes:
+    - "./dockerdata/graylog2/data:/var/opt/graylog/data"
+    - "./dockerdata/graylog2/logs:/var/log/graylog"
+  environment:
+    - GRAYLOG_TIMEZONE=America/Sao_Paulo
+    - GRAYLOG_PASSWORD=lkjDje12daDkS3kL
+    - GRAYLOG_NODE_ID=32a36cdc-730f-4fc3-5bef-d2a3f2eec166
+    - GRAYLOG_SERVER_SECRET=de3b93af-d430-cb63-a1d5-d71cd3bd78c0
