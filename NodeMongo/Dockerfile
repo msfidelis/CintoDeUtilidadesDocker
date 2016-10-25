@@ -5,9 +5,9 @@ RUN npm install nodemon -g
 
 WORKDIR /usr/src/app
 ADD app/package.json /usr/src/app/package.json
-RUN npm install
+RUN npm install -g
 
-ADD app/nodemon.json /usr/src/app/nodemon.json
+#ADD app/nodemon.json /usr/src/app/nodemon.json
 
 EXPOSE 80
 EXPOSE 8080

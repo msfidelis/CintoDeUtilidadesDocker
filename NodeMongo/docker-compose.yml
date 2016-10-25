@@ -1,8 +1,9 @@
+
 mongo:
-  image: mongo:2.6.11
+  image: mongo:3.0.4
   ports:
    - "27017:27017"
-   volumes:
+  volumes:
    - './data:/data/db'
 application:
   build: .
@@ -13,6 +14,6 @@ application:
    - "3000:3000"
    - "5858:5858"
   volumes:
-  - ./app:/usr/src/app
+   - ./app:/usr/src/app
   links:
    - mongo

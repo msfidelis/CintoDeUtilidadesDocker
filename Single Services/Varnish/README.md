@@ -1,0 +1,1 @@
+#Exemplo de cacheamento com o Varnish

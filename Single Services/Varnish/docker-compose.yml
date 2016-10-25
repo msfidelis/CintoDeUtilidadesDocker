@@ -1,0 +1,16 @@
+varnish:
+  image: jacksoncage/varnish
+  environment:
+    #Container a ser cacheado
+    VARNISH_BACKEND_IP: web
+
+  links:
+    - web:web
+
+  ports:
+    - 8100:80
+
+web:
+  image: tutum/apache-php #Imagem do PHP do tutum mesmo, porque eu gosto... :)
+  ports:
+    - 8101:80

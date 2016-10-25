@@ -1,0 +1,13 @@
+mysql:
+  image: mysql:5.7
+  volumes:
+    - "./data/db:/var/lib/mysql"
+  restart: always
+  environment:
+    MYSQL_ROOT_PASSWORD: biribinha
+    MYSQL_USER: superman
+    MYSQL_PASSWORD: batman
+
+  ports:
+    - "3306:3306"
+
