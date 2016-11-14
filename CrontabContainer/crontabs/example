@@ -1,0 +1,2 @@
+* * * * * root echo "Teste" >> /home/cron.log 2>&1
+* * * * * root /home/scripts/exemplo.sh >> /home/cron.log 2>&1
