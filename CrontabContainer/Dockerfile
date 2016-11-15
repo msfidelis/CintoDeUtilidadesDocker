@@ -1,11 +1,9 @@
 FROM ubuntu:16.04
-MAINTAINER Matheus Fidelis <msfidelis01@gmail.com>
+MAINTAINER <msfidelis01@gmail.com>
 
-RUN touch /home/cron.log
+RUN touch /var/log/cron.log
 
-RUN apt-get update ; \
-  apt-get install cron -y
+RUN apt-get update \
+    && apt-get -y install cron
 
-VOLUME /etc/cron.d/
-
-CMD ["cron", "-f"]
+CMD cron && tail -f /var/log/cron.log

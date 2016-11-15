@@ -1,0 +1,2 @@
+* * * * * root echo "Exemplo de Comando" >> /var/log/cron.log 2>&1
+* * * * * root chmod +x /var/scripts -R ; /var/scripts/exemplo.sh >> /var/log/cron.log 2>&1

@@ -2,7 +2,6 @@ version: '2'
 services:
   crontab:
     build: .
-    restart: always
     volumes:
       - ./crontabs:/etc/cron.d
-      - ./scripts:/home/scripts/
+      - ./scripts:/var/scripts

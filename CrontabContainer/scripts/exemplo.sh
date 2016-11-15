@@ -1,1 +1,4 @@
-echo "Teste via script"  
+#!/bin/bash
+uptime;
+echo "Exemplo de Script"
+
