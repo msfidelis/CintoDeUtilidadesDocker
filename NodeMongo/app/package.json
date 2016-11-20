@@ -7,10 +7,11 @@
     "start": "nodemon app.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "mongoose": "^4.5.10",
-    "nodemon": "^1.10.2"
+    "mongoose": "~4.6.1",
+    "nodemon": "^1.10.2",
+    "body-parser": "1.15.2"
   }
 }
