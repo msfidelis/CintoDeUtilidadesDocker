@@ -1,0 +1,21 @@
+nginx:
+  build: .
+  volumes:
+    - ./web:/var/www/html
+    - ./server/vhost.conf:/etc/nginx/conf.d/vhost.conf
+  ports:
+    - "80:80"
+  links:
+    - mysql
+
+mysql:
+  image: mysql:5.7
+  restart: always
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=minhaapi
+  volumes:
+    - ./etc/mysql:/docker-entrypoint-initdb.d
+    - ./data/db:/var/lib/mysql

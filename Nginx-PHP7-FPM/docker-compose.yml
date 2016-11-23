@@ -1,0 +1,16 @@
+webserver:
+    image: nginx:latest
+    ports:
+        - "80:80"
+    volumes:
+        - ./app:/var/www/html
+        - ./server/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    links:
+        - php-fpm
+
+php-fpm:
+    image: php:7-fpm
+    volumes:
+        - ./app:/var/www/html
+    expose:
+        - "9000"

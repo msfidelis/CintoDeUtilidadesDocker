@@ -1,8 +1,10 @@
 FROM ubuntu:16.04
-MAINTAINER Matheus Fidelis <msfidelis01@gmail.com> 
+MAINTAINER Matheus Fidelis <msfidelis01@gmail.com>
 
 #Libs do PHP7
 RUN apt-get update ; apt-get install apache2 wget php7.0 libapache2-mod-php7.0 php7.0-fpm php7.0-mysql php7.0-json php7.0-ldap php7.0-zip php7.0-bcmath php7.0-curl php7.0-common php7.0-dba php7.0-gd php7.0-odbc -y;
+
+RUN rm -rf /var/lib/apt/lists/*; apt-get autoremove; apt-get autoclean; apt-get clean;
 
 #Composer
 RUN apt-get install curl -y; curl -s -o /usr/local/bin/composer https://getcomposer.org/composer.phar && \
