@@ -1,0 +1,8 @@
+version: '2'
+services:
+  memcache:
+    build: ./Versions/Ubuntu
+    #build: ./Versions/Alpine
+    ports:
+      - "11211:11211"
+    command: memcached -m 512

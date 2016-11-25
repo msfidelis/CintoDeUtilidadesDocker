@@ -1,0 +1,30 @@
+version: 2
+services:
+  api:
+    build: ./Services/PHP7
+    restart: always
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - mysql
+      - memcached
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  memcache:
+    build: Services/Memcache
+    #image: memcached:alpine
+    ports:
+      - "11211:11211"
+    command: memcached
