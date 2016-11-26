@@ -24,7 +24,6 @@ services:
 
   memcache:
     build: Services/Memcache
-    #image: memcached:alpine
     ports:
       - "11211:11211"
     command: memcached
