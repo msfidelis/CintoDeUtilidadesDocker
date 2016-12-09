@@ -1,0 +1,46 @@
+server {
+  server_name default;
+  root        /var/www/;
+  index       index.html;
+
+  client_max_body_size 100M;
+  fastcgi_read_timeout 1800;
+
+  proxy_cache one;
+
+  gzip on;
+  gzip_min_length 1000;
+  gzip_proxied any;
+  gzip_comp_level 6;
+  gzip_buffers 16 8k;
+  gzip_http_version 1.1;
+  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+  gunzip on;
+
+  location / {
+    try_files $uri $uri/ @htmlext;
+    gzip_static on;
+  }
+
+  location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+  }
+
+  location ~ \.html$ {
+      try_files $uri =404;
+  }
+
+  location @htmlext {
+      rewrite ^(.*)$ $1.html last;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+    expires       max;
+    log_not_found off;
+    access_log    off;
+    gzip_static on;
+  }
+}

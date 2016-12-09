@@ -1,0 +1,12 @@
+version: "2"
+services:
+  web:
+    build: ./Docker/Nginx
+    restart: always
+    volumes:
+      - ./Docker/Nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./Docker/Nginx/default.vhost:/etc/nginx/conf.d/default.vhost
+      - ./site:/var/www
+      - ./cache:/var/app-cache/
+    ports:
+      - "80:80"
