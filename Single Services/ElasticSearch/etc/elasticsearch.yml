@@ -1,0 +1,16 @@
+path:
+  data: /data/data
+  logs: /data/log
+  plugins: /data/plugins
+  work: /data/work
+
+cluster.name: matheusApp
+node.name: matheusNode
+
+script.disable_dynamic: true
+action.auto_create_index: false
+bootstrap.mlockall: true
+
+action.disable_delete_all_indices: true
+
+indices.cluster.send_refresh_mapping: false

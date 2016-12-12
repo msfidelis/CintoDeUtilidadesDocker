@@ -3,6 +3,6 @@ jenkins:
   ports:
     - "8080:8080"
     - "50000:50000"
-
+    - "8000:8000"
   volumes:
     - ./jenkins_home:/var/jenkins_home
