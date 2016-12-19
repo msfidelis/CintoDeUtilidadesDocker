@@ -1,7 +1,5 @@
 elasticsearch:
   build: .
-  working_dir: /data
-  command: /elasticsearch/bin/elasticsearch -Des.config=/data/config/elasticsearch.yml
   volumes:
     - ./data:/data
     - ./etc/:/data/config

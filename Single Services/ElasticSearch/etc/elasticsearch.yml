@@ -6,9 +6,9 @@ path:
 
 cluster.name: matheusApp
 node.name: matheusNode
-
-script.disable_dynamic: true
-action.auto_create_index: false
+network.host: 0.0.0.0
+index.mapper.dynamic: true
+action.auto_create_index: true
 bootstrap.mlockall: true
 
 action.disable_delete_all_indices: true
