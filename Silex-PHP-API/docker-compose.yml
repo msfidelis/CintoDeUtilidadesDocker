@@ -1,0 +1,44 @@
+version: '2'
+services:
+  api:
+    build: Docker/Api
+    restart: always
+    volumes:
+      - ./web:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - mysql
+
+  composer:
+    build: Docker/Composer
+    restart: never
+    volumes:
+      - ./web/:/home/web
+
+  memcache:
+    build: Docker/Memcache
+    restart: always
+    ports:
+      - "11211:11211"
+    command: memcached
+
+  mysql:
+    image: mysql:5.7
+    restart: aways
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=hostapi
+      - MYSQL_DATABASE=mydb
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  #Executa um Dump do MySQL
+  dump:
+    build: Docker/Dumper
+    volumes:
+      - ./Docker/Dumper/:/var/db/
+    command: sh -c "sleep 10 && /usr/bin/mysql -h mysql -uroot -phostapi mydb < /var/db/db.sql"
+    depends_on:
+      - mysql

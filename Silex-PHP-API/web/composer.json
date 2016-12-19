@@ -1,0 +1,14 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "doctrine/dbal": "~2.5",
+        "symfony/browser-kit": "*",
+         "phpunit/phpunit": "5.5.*"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "dev-master"
+    },
+    "autoload": {
+  	   "psr-4": {"App\\": "./src"}
+  }
+}
