@@ -1,16 +1,23 @@
-webserver:
-    image: nginx:latest
-    ports:
-        - "80:80"
+version: '2'
+services:
+  fpm:
+    build: PHP7fpm
+    restart: never
     volumes:
-        - ./app:/var/www/html
-        - ./server/vhost.conf:/etc/nginx/conf.d/vhost.conf
-    links:
-        - php-fpm
+      - ./app:/var/www/html
 
-php-fpm:
-    image: php:7-fpm
+    ports:
+      - "9000:9000"
+
+  nginx:
+    build: Nginx
+    restart: never
     volumes:
-        - ./app:/var/www/html
-    expose:
-        - "9000"
+      - ./server/nginx.conf:/etc/nginx/nginx.conf
+      - ./server/app.vhost:/etc/nginx/conf.d/app.vhost
+      - ./Logs/Nginx:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - fpm
