@@ -1,14 +1,11 @@
 php7:
   build: .
-  #dockerfile: ./Dockerfile
   volumes:
     - ./sites:/var/www/html
-    - ./etc/php:/usr/local/etc/php
-    - ./etc/apache2/apache2.conf:/etc/apache2/conf-enabled/apache2.conf
+    - ./etc/php/php.ini:/etc/php/7.0/apache2/php.ini
     - ./etc/apache2/hosts.conf:/etc/apache2/sites-enabled/hosts.conf
   ports:
     - "80:80"
-    - "8080:8080"
   links:
     - mysql
 
@@ -21,6 +18,6 @@ mysql:
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=transformers
-  volumes: 
+  volumes:
     - ./etc/mysql:/docker-entrypoint-initdb.d
     - ./data/db:/var/lib/mysql
