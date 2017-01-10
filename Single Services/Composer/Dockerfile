@@ -8,4 +8,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 RUN mkdir /home/web
 WORKDIR /home/web
 
-CMD ["/usr/bin/composer", "update"]
+CMD ["/usr/bin/composer", "update", "--ignore-platform-reqs"]
