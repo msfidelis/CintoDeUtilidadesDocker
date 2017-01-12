@@ -27,7 +27,7 @@ sub vcl_backend_response {
     unset beresp.http.set-cookie;
     set beresp.do_stream = true;
   }
-  
+
   #Cache de 6 horas
   set beresp.grace = 6h;
 
