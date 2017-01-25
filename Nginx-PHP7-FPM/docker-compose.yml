@@ -8,6 +8,8 @@ services:
 
     ports:
       - "9000:9000"
+    links:
+      - mysql
 
   nginx:
     build: Nginx
@@ -21,3 +23,14 @@ services:
       - "443:443"
     links:
       - fpm
+      
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=minhaapi
+    volumes:
+    -   ./data/db:/var/lib/mysql
