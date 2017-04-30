@@ -1,8 +1,7 @@
-version: "2"
+version: "3"
 services:
   api:
     build: ./PHP7
-    restart: always
     volumes:
       - ./web:/var/www/html
     ports:
