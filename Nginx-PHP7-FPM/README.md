@@ -1,1 +1,1 @@
-# Ultra rápido Web Server para API com alta concorrência
+# Stack PHP utilizando FPM. Ideal para API's com alta concorrência. 
