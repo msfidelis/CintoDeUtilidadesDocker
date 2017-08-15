@@ -1,8 +1,15 @@
-elasticsearch:
-  build: .
-  volumes:
-    - ./data:/data
-    - ./etc/:/data/config
-  ports:
-    - "9200:9200"
-    - "9300:9300"
+version: "3"
+services:
+    elasticsearch:
+        build: ./elasticsearch
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        volumes:
+            - "./elasticdata:/data"
+            - "./elasticsearch/etc:/data/config"
+        networks:
+            - cluster
+
+networks:
+    cluster:
