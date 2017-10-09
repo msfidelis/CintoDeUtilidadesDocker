@@ -1,0 +1,6 @@
+version: "3"
+services:  
+  redises:
+    image: redis:3.2.11-alpine
+    ports: 
+      - "6379:6379"
