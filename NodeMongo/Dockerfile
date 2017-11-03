@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:8.6.0-alpine
 
 RUN mkdir -p /usr/src/app
 RUN npm install nodemon -g
