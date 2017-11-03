@@ -1,13 +1,20 @@
-mysql:
-  image: mysql:5.7
-  volumes:
-    - "./data/db:/var/lib/mysql"
-  restart: always
-  environment:
-    MYSQL_ROOT_PASSWORD: biribinha
-    MYSQL_USER: superman
-    MYSQL_PASSWORD: batman
+version: "3"
+services:
+    mysql:
+        image: mysql:5.7
+        volumes:
+            - "./data/db:/var/lib/mysql"
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: biribinha
+            MYSQL_USER: superman
+            MYSQL_PASSWORD: batman
+        logging:
+            driver: gelf
+            options:
+                gelf-address: udp://graylog:12201
+         
 
-  ports:
-    - "3306:3306"
+        ports:
+            - "3306:3306"
 
