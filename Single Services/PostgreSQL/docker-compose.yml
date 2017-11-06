@@ -8,7 +8,7 @@ PostgreSQL:
     - DEBUG=false
 
     - DB_USER=user
-    - DB_PASS=batatinha123
+    - DB_PASS=batatinha1234
     - DB_NAME=lojinha_do_matheus
     - DB_TEMPLATE=
 
