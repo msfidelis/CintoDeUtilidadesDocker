@@ -10,6 +10,5 @@ services:
             - "./elasticsearch/etc:/data/config"
         networks:
             - cluster
-
 networks:
     cluster:
