@@ -1,3 +1,4 @@
+version: "2"
 PostgreSQL:
   restart: always
   image: sameersbn/postgresql:9.5-3
