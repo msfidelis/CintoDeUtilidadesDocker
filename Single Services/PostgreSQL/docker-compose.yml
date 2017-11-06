@@ -17,6 +17,6 @@ PostgreSQL:
     - REPLICATION_MODE=
     - REPLICATION_USER=
     - REPLICATION_PASS=
-    - REPLICATION_SSLMODE=
+    - REPLICATION_SSLMODE=false
   volumes:
     - ./data:/var/lib/postgresql
