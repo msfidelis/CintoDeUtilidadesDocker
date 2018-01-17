@@ -1,3 +1,4 @@
+version: "3"
 PostgreSQL:
   restart: always
   image: sameersbn/postgresql:9.5-3
@@ -7,7 +8,7 @@ PostgreSQL:
     - DEBUG=false
 
     - DB_USER=user
-    - DB_PASS=batatinha
+    - DB_PASS=batatinha1234
     - DB_NAME=lojinha_do_matheus
     - DB_TEMPLATE=
 
@@ -16,6 +17,6 @@ PostgreSQL:
     - REPLICATION_MODE=
     - REPLICATION_USER=
     - REPLICATION_PASS=
-    - REPLICATION_SSLMODE=
+    - REPLICATION_SSLMODE=false
   volumes:
     - ./data:/var/lib/postgresql
