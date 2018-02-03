@@ -2,7 +2,7 @@ version: '2'
 services:
   fpm:
     build: PHP7fpm
-    restart: never
+    # restart: always
     volumes:
       - ./app:/var/www/html
 
@@ -13,7 +13,7 @@ services:
 
   nginx:
     build: Nginx
-    restart: never
+    # restart: always
     volumes:
       - ./Nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./Nginx/app.vhost:/etc/nginx/conf.d/app.vhost
@@ -28,7 +28,7 @@ services:
 
   mysql:
     image: mysql:5.7
-    restart: always
+    #restart: always
     ports:
       - "3306:3306"
     environment:
