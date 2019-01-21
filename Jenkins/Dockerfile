@@ -1,4 +1,4 @@
-FROM jenkins:latest
+FROM  jenkins/jenkins:lts
 MAINTAINER Matheus Fidelis <msfidelis01@gmail.com>
 
 VOLUME /var/jenkins_home
